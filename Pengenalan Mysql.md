@@ -13,7 +13,7 @@ Sebelum masuk ke materi *basis data* kita harus mengetahui pengertian atau defin
 
 ## Struktur Basis Sata
 **Basis data** umumnya digambarkan sebagai tabung yang berisikan data data, yang dimana data tersebut berbentuk tabel, contohnya ialah sebagai berikut :
-![Gambar1](Aset/IMG1/IMG1(1).jpg)
+![Gambar1](IMG1(1).jpg)
 
 ## Contoh Table
 berikut ialah contoh table  simpel yang berisikan item Nama,Hoby dan umur :
@@ -43,9 +43,9 @@ Database ialah tempat disimpan nya data data yang digambarkan sebagai bentuk tab
 ## cara menginstal Mysql
 untuk menginstal mysql pertama tama kita harus memingstal **xampp** dan untuk mendapatkannya kita dapat mendownload software tersebut pada browser. dan setelah menginstal ikuti tahap berikut ini :
 1. Buka **XAMPP** lalu tunggu proses instaling selesai. dan setelah itu klik icon yang bertuliskan "FInish"
-	![Gambar2](Aset/IMG2/IMG2(1).png) 
+	![Gambar2](IMG2(1).png) 
 2. Setelah terlihat tampilan seperti ini klik icon "Start" pada baris **Mysql** dan klik icon yang bertuliskan "Shell".
-	![Gambar3](Aset/IMG2/IMG2(2).png)
+	![Gambar3](IMG2(2).png)
 3. Dan setelah itu kita akan langsung di arahkan ke dalam **Mysql** dan tahap penginstalan telah selesai.
 
 
@@ -54,16 +54,16 @@ untuk menginstal mysql pertama tama kita harus memingstal **xampp** dan untuk me
 setelah melakukan tahap "menginstal Mysql" selanjutnya ada tahap *membuat*, *menghapus*, *melihat* dan *menggunakan* data base.
 ## 1) membuat database
 untuk membuat database kita menggunakan query `CREATE DATABASE [nama_database]` setelah mengetikkan query tersebut akan terbuat sebuah databse dan hasilnya akan seperti dibawah ini :
-![Gambar4](Aset/IMG2/IMG2(3).png)
+![Gambar4](IMG2(3).png)
 ## 2) menampilkan database
 untuk menampilkan *data base* kita bisa menggunakan `SHOW DATABASES;` untuk menampilkan data base yang telah digunakan seperti pada contoh di atas kita telah membuat *database* dengan nama "RENTAL_NERO" dan hasilnya tampil pada daftar database yang telah kita buat, hasilnya akan terlihat seperti dibawah ini :
-![Gambar5](Aset/IMG2/IMG2(4).png)
+![Gambar5](IMG2(4).png)
 ## 3) menghapus database
 adapun untuk menghapus *database* kita menggunakan query `DROP DATABASE [nama_database]`dan *database* yang ditentukan akan terhapus lalu untuk memastikannya kita dapat melihatnya di `SHOW DATABASES`, setelah menuliskan query `DROP` hasilnya akan seperti dibawah ini :
-![Gambar6](Aset/IMG2/IMG2(5).png)
+![Gambar6](IMG2(5).png)
 ## 4) menggunakan database 
 lalu yang terakhir untuk menggunakan *database* yang telah kita buat di langkah langkah sebelumnya, kita dapat menggunakan query `USE [nama_database]`, lalu setelah mengetikkan query diatas kita akan langsung masuk kedalam *database* yang kita inginkan. Hasilnya akan terlihat seperti dibawah ini :
-![Gambar7](Aset/IMG2/IMG2(6).png)
+![Gambar7](IMG2(6).png)
 
 
 
@@ -79,12 +79,13 @@ lalu yang terakhir untuk menggunakan *database* yang telah kita buat di langkah 
  - ==TINYINT, SMALLINT,== ==MEDIUMINT==, dan ==BIGINT: ==Tipe data ini menyimpan bilangan bulat dengan ukuran yang berbeda-beda.
    Contoh : 
 
-
-CREATE TABLE contoh_tabel (
-    id INT,
-    harga DECIMAL(10, 2),
-    jumlah_barang TINYINT
-);
+	```mysql
+	CREATE TABLE contoh_tabel (
+	    id INT,
+	    harga DECIMAL(10, 2),
+	    jumlah_barang TINYINT
+	);
+	```
 
 
 Dalam contoh tersebut, id menggunakan tipe data INT, harga menggunakan tipe data `DECIMAL `dengan presisi 10 digit dan 2 angka di belakang koma, dan jumlah_barang menggunakan tipe data `TINYINT.
@@ -102,12 +103,14 @@ Dalam contoh tersebut, id menggunakan tipe data INT, harga menggunakan tipe data
 - ==SET: ==Mirip dengan ENUM, namun dapat menyimpan satu atau lebih nilai dari himpunan yang telah ditentukan.
 
 **Contoh :**
+```mysql
 CREATE TABLE contoh_tabel (
     nama CHAR(50),
     alamat VARCHAR(100),
     catatan TEXT,
     status ENUM('Aktif', 'Non-Aktif')
 );
+```
 
 ## tanggal
 
@@ -118,13 +121,14 @@ CREATE TABLE contoh_tabel (
 
 - ==TIMESTAMP: ==Sama seperti DATETIME, tetapi dengan kelebihan diatur secara otomatis saat data dimasukkan atau diubah.
 
-
+```mysql
 CREATE TABLE ContohTabel (
     tanggal DATE,
     waktu TIME,
     datetimekolom DATETIME,
     timestampkolom TIMESTAMP
 );
+```
 
 
 Dalam contoh ini, kolom *==tanggal==* akan menyimpan nilai tanggal, *==waktu==* menyimpan nilai waktu, ==*datetimekolom== menyimpan kombinasi tanggal dan waktu, dan **==timestampkolom==* akan secara otomatis diatur saat data dimasukkan atau diubah.
@@ -134,28 +138,31 @@ Dalam contoh ini, kolom *==tanggal==* akan menyimpan nilai tanggal, *==waktu==* 
 - ==BOOL / BOOLEAN / TINYINT(1):== Digunakan untuk menyimpan nilai boolean, yang dapat mewakili kebenaran atau kesalahan. Representasi nilai benar adalah 1, sedangkan nilai salah direpresentasikan sebagai 0. Meskipun nilai selain 0 dianggap benar, secara umum, ketiganya seringkali digunakan secara bergantian. Seringkali, ketika Anda mendeklarasikan kolom sebagai BOOL atau BOOLEAN, MySQL mengonversinya secara otomatis menjadi TINYINT(1), yang juga dapat digunakan untuk menyimpan nilai boolean dengan 0 untuk false dan 1 untuk true.
 
 1. Menggunakan BOOLEAN
-sql
+```mysql
 CREATE TABLE contohTabel (
     title VARCHAR(255),
     completed BOOLEAN
 );
+```
 Dalam contoh diatas, kita mendefinisikan kolom completed sebagai tipe data BOOLEAN. Ini merupakan cara yang sah dan umum digunakan di MySQL. Nilai yang dapat disimpan dalam kolom ini adalah TRUE atau FALSE, atau dalam representasi angka, 1 atau 0.
 
 2. Menggunakan BOOL
-sql
+```mysql
 CREATE TABLE contohTabel (
     title VARCHAR(255),
     completed BOOL
 );
+```
 
 Dalam contoh ini, kita menggunakan BOOL sebagai tipe data untuk kolom completed. Perlu dicatat bahwa MySQL secara otomatis mengonversi BOOL menjadi TINYINT(1). Oleh karena itu, pada dasarnya, ini setara dengan contoh pertama. Namun, beberapa pengembang lebih suka menggunakan BOOLEAN untuk kejelasan.
 
 3. Menggunakan TINYINT(1)
-sql
+```mysql
 CREATE TABLE contohTabel (
     title VARCHAR(255),
     completed TINYINT(1)
 );
+```
 
 Dalam contoh ini, kita menggunakan TINYINT(1) sebagai tipe data untuk kolom completed. Ini adalah pendekatan yang valid karena MySQL mengonversi BOOL menjadi TINYINT(1) secara otomatis. Dalam hal ini, nilai yang dapat disimpan adalah 1 untuk TRUE dan 0 untuk FALSE.
 
@@ -169,28 +176,51 @@ setelah kita membuat *database* selanjutnya kita membuat *tabel* untuk tempat me
 untuk pembuatan table kita menggunakan format seperti di bawah ini :
 ```mysql
 CREATE TABLE [nama_table] (
-    -> nama_kolom1 tipe_data(ukuran) [tipe_constraint]
-    -> nama_kolom2 tipe_data(ukuran) [tipe_constraint]
-    -> nama_kolom3 tipe_data(ukuran) [tipe_constraint]
-    );
+    -> id_pelanggan INT (4) PRIMARY KEY NOT NULL,
+    -> nama_depan VARCHAR(20) NOT NULL,
+    -> nama_belakang VARCHAR(20) NOT NULL,
+    -> no_telp VARCHAR (12) UNIQUE 
+     );
 ```
-atau contohnya seperti ini :
-![Gambar8](Aset/IMG2/IMG2(7).png)
+Dan hasilnya akan seperti berikut :
+![Gambar8](IMG2(7).png)
+>[!info]- Analisis
+>> id_pelanggan,nama_depan,nama_belakang dan no_telp : Menjadi field dari sebuah table
+>> INT :  tipe data untuk menampung nilai angka
+>> VARCHAR : tipe data untuk menampung nilai huruf
+>> ( ) : untuk menentukan nilai dari tipe data
+>> PRIMARY KEY : menjadi sebuah penanda karna hanya ada satu di sebuah kolom
+>> NOT NULL : berarti kolom harus di isi
+>> UNIQUE : memiliki sistem yang mirip dengan primary key.
+
+**Kesimpulan :**
+kata pertama (id_pelanggan) ialah nama dari kolomnya lalu kata keduanya (INT) ialah nama tipe datanya lalu kata ketiga (NOT NULL) ialah untuk memastikan agar colomnya harus di isi atau tidak.
+
 
 ## 2) menampilkan struktur tabel
-lalu setelah membuat tabel kita dapat menampilkan struktur dari table yang telah kita buat dengan cara mengetik `DESC [nama_tabel]` dan hasilnya akan seperti berikut :
-![Gambar9](Aset/IMG2/IMG2(8).png)
+lalu setelah membuat tabel kita dapat menampilkan struktur dari table yang telah kita buat dengan cara mengetik `DESC [nama_tabel]` dan hasil kodenya akan seperti berikut :
+```mysql
+DESC PELANGGAN;
+```
+Dan hasilnya akan seperti berikut :
+![Gambar9](IMG2(8).png)
+>[!info]- Analisis
+>> DESC : berfungsi untuk mendeskripsikan hasil atau struktur tabel yang telah dibuat
+
+**Kesmipulan :**
+setelah membuat table kita dapat menampilkan struktur dari table tersebut dengan mengetikkan query `DESC PELANGGAN` dan hasilnya akan tampil.
+
 
 ## 3) menampilkan daftar tabel
 untuk menampilkan daftar tabel yang ada dalam *database* kita menggunakan query `SHOW TABLES;`dan hasil yang akan tampil ialah seperti berikut : 
-![Gambar10](Aset/IMG2/IMG2(9).png)
+![Gambar10](IMG2(9).png)
 
  > [!info]- Analisis 
  >>- `SHOW TABLES` ialah query yang berfungsi untuk menampilkan table table yang terdapat pada databse yang kita gunakan.
 >>- `DESC TABLES` ialah query yang berfungsi untuk menampilkan struktur table yang telah dibuat. 
 >>- Kita dapat membuat table dalam sebuah database dengan mengetik format pada nomor 1.
-### Kesimpulan :
-untuk membuat table kita membutuhkan format seperti yang dicontohkan pada nomor satu dan, setelah kita membuat table kita dapat melihat struktur table dengan *query* `DESC TABLES` dan kita dapat melihat daftar table apa saja yang telah dibuat dengan *query* `SHOW TABLES`, setelah mengetikkan *query* tersebut akan muncul tampilan daftar table yang telah dibuat.
+
+**Kesimpulan :**
 
 
 
@@ -230,7 +260,7 @@ INSERT INTO [NAMA_TABLE]
  VALUES (DATA_1, DATA_2, DATA_3, DATA_4);
 ```
 atau untuk pengaplikasiannya seperti berikut :
-![Gambar11](Aset/IMG3/IMG3(1).png)
+![Gambar11](IMG3(1).png)
 
 ### Insert lebih 1 baris
 Sedangkan untuk menginput nilai yang lebih dari satu baris kita menggunakan foramt seperti dibawah ini :
@@ -241,7 +271,7 @@ INSERT INTO [NAMA_TABLE]
 (DATA_1, DATA_2, DATA_3, DATA_4);
 ```
 atau untuk pengaplikasiannya seperti berikut :
-![Gambar12](Aset/IMG3/IMG3(2).png)
+![Gambar12](IMG3(2).png)
 
 
 ## ==Select== 
@@ -253,7 +283,7 @@ untuk menampilkan hasil dari seluruh table yang telah dibuat/menampilkan seluruh
 SELECT * FROM [NAMA_TABLE];
 ```
 Dan hasilnya akan tampil seperti ini :
-![Gambar13](Aset/IMG3/IMG3(3).png)
+![Gambar13](IMG3(3).png)
 
 
 ### Select field spesifik
@@ -262,7 +292,7 @@ lalu untuk menampilkan beberapa kolom yang spesifik kita dapat menggunakan forma
 SELECT NAMA_KOLOM_1, NAMA_KOLOM_2, NAMA_KOLOM_N FROM PELANGGAN;
 ```
 Dan hasil yang akan tampil ialah kolom kolom yang di minta saja contoh dan hasilnya akan seperti ini :
-![Gambar14](Aset/IMG3/IMG3(4).png)
+![Gambar14](IMG3(4).png)
 
 ### Select kondisi "where"
 lalu kondisi yang saat satu ini berfungsi untuk mengambil data yang lebih spesifik dari sebuah field dengan simbol simbol aritmatika mulai dari "+", "-", "/", "%",">","<". Misalnya kita meminta untuk menampilkan field "Nama_Depan" pada "Id_Pelanggan" ke 2, kita dapat menggunakan simbol aritmatika seperti berikut :
@@ -270,7 +300,7 @@ lalu kondisi yang saat satu ini berfungsi untuk mengambil data yang lebih spesif
 SELECT Nama_Kolom FROM Nama_Table WHERE Id_Pelanggan=2; 
 ```
 Dan contoh serta hasilnya akan terlihat seperti berikut ini :
-![Gambar15](Aset/IMG3/IMG3(5).png)
+![Gambar15](IMG3(5).png)
 
 > [!info]- Analisis
 >> - Insert ialah query yang berfungsi untuk memasukkan data pada table yang telah kita buat.
@@ -297,7 +327,7 @@ UPDATE PELANGGAN SET No_Telp="083135219096" WHERE Id_Pelanggan=1;
 ```
 
 Berikut ialah contoh pengaplikasian dan hasil dari penggunaan **Update** :
-![Gambar16](Aset/IMG3/IMG3(6).png)
+![Gambar16](IMG3(6).png)
 
 ## ==Delete==
 Kita juga dapat menghapus baris pada table dengan *Query* **Delete**, untuk menghapus keseluruhan baris kita dapat menggunakan format seperti ini :
@@ -310,7 +340,7 @@ DELETE FROM PELANGGAN WHERE Id_Pelanggan=6;
 ```
 
 Berikut ialah contoh pengaplikasian dan hasil dari penggunaan **Delete** :
-![Gambar18](Aset/IMG3/IMG3(8).png)
+![Gambar18](IMG3(8).png)
 
 
 > [!Info]- Analisis
@@ -325,13 +355,13 @@ dua *Query* yang akan dipelajari selanjutnya ialah untuk mengganti data dan meng
 
 
 
-
+Pisah file baru
 ##### Pertemuan 4
 # Select Lanjutan
 Setelah mempelajari select di materi sebelumnya sekarang kita akan masuk ke dalam materi select lanjutan, fungsi dari select select ini ialah untuk mendapatkan hasil yang lebih spesifik dan lebih luas, sekarang kita akan mempelajari 7 select lanjutan **(AND ,OR ,BETWEEN-AND ,NOT BETWEEN ,<= ,>= ,<> ATAU !=)** Untuk penjelasan lebih lanjutnya ialah seperti berikut :
 
 > [!info]- Isi Table yang akan digunakan :
->>![Gambar19](Aset/IMG4/IMG4(1).png)
+>>![Gambar19](IMG4(1).png)
 >
 
 ## AND
@@ -340,7 +370,7 @@ untuk **AND** ini akan mengambil "data 1" *dan* "data 2", contoh kodenya adalah 
 SELECT warna,pemilik FROM mobil WHERE warna="Hitam" AND pemilik="ibrahim";
 ```
 Dan hasilnya akan seperti berikut :
-![Gambar20](Aset/IMG4/IMG4(2).png)
+![Gambar20](IMG4(2).png)
 
 ## OR
 Untuk **OR** ini akan mengambil "data 1" *atau* "data 2", contoh kodenya ialah seperti berikut :
@@ -348,7 +378,7 @@ Untuk **OR** ini akan mengambil "data 1" *atau* "data 2", contoh kodenya ialah s
 SELECT warna,pemilik FROM mobil WHERE warna="Hitam" OR pemilik="ibrahim";
 ```
 Dan hasilnya akan seperti berikut :
-![Gambar21](Aset/IMG4/IMG4(3).png)
+![Gambar21](IMG4(3).png)
 
 ## BETWEEN-AND
 Untuk **BETWEEN-AND** ini akan mengambil antara "data 1" *sampai* "data 2" dibantu dengan **AND**, contoh kodenya ialah seperti berikut :
@@ -356,7 +386,7 @@ Untuk **BETWEEN-AND** ini akan mengambil antara "data 1" *sampai* "data 2" diban
 SELECT * FROM mobil WHERE harga_rental BETWEEN 100000 AND 200000;
 ```
 Dan hasilnya akan seperti berikut :
-![Gambar22](Aset/IMG4/IMG4(4).png)
+![Gambar22](IMG4(4).png)
 
 ## NOT BETWEEN 
 Untuk **NOT BETWEEN** ini akan mengambil "data" yang *bukan antara* "data 1" *dan* "data 2", contoh kodenya ialah seperti berikut :
@@ -364,7 +394,7 @@ Untuk **NOT BETWEEN** ini akan mengambil "data" yang *bukan antara* "data 1" *da
 MariaDB [rental_nero]> SELECT * FROM mobil WHERE harga_rental NOT BETWEEN 100000 AND 200000;
 ```
 Dan hasilnya akan seperti berikut :
-![Gambar23](Aset/IMG4/IMG4(5).png)
+![Gambar23](IMG4(5).png)
 
 
 ## <=
@@ -373,7 +403,7 @@ Untuk **<=** ini akan mengambil "data"  lebih kecil atau sama dengan "nilai data
 MariaDB [rental_nero]> SELECT * FROM mobil WHERE harga_rental <= 50000;
 ```
 Dan hasilnya akan seperti berikut :
-![Gambar24](Aset/IMG4/IMG4(6).png)
+![Gambar24](IMG4(6).png)
 
 
 ## >=
@@ -382,7 +412,7 @@ Untuk **>=** ini akan mengambil "data"  lebih besar atau sama dengan "nilai data
 MariaDB [rental_nero]> SELECT * FROM mobil WHERE harga_rental >= 50000;
 ```
 Dan hasilnya akan seperti berikut :
-![Gambar25](Aset/IMG4/IMG4(7).png)
+![Gambar25](IMG4(7).png)
 
 
 ## <> atau !=
@@ -391,14 +421,14 @@ Untuk **<> atau !=** ini akan mengambil "data"  yang tidak sama dengan "nilai da
 MariaDB [rental_nero]> SELECT * FROM mobil WHERE harga_rental <> 50000;
 ```
 Dan hasilnya akan seperti berikut :
-![Gambar26](Aset/IMG4/IMG4(8).png)
+![Gambar26](IMG4(8).png)
 
 
 ## Tantangan 
 
 Untuk tantangan saya akan mengambil nama pemilik "Ibe" dengan cara memanggilnya dengan syarat nomor pelatnya yaitu "DD 2901 JK" lalu hasilnya akan seperti berikut :
-![Gambar27](Aset/IMG4/IMG4(9).png)
-
+![Gambar27](IMG4(9).png)
+.
 > [!info]- Analisis
 >> "AND" : Mengambil data 1 **dan** data 2.
 >> "OR" : Mengambil data antara data 1 **atau** data 2.
@@ -411,3 +441,19 @@ Untuk tantangan saya akan mengambil nama pemilik "Ibe" dengan cara memanggilnya 
 
 Kesimpulan : 
 Select ini memiliki cakupan yang luas dan bervariasi semunya juga memiliki kelebihan dan keunikan masing masing sehingga dapat menampilkan hasil sebuah nilai yang di inginkan, keberagaman select ini mulai dari AND ,OR ,BETWEEN-AND ,NOT BETWEEN ,<= ,>= ,<> ATAU !=.  
+
+
+**Pertemuan 5**
+## IN 
+Untuk select lanjutan berikutnya ialah IN yang berfungsi untuk menampilkan data yang di sebutkan pada dalam kurung yang diminta oleh IN, contoh kodenya akan seperti dibawah ini :
+```mysql
+SELECT * FROM mobil WHERE warna IN ('Hitam','Silver');
+```
+Dan hasilnya akan seperti berikut :
+![[IMG5_1.png]]
+
+## IN+AND
+Setelah mempelajari materi AND kita bisa menggabungkan IN dan AND untuk mendapat hasil yang lebih luas karna akan memiliki dua kondisi, untuk contoh kode programnnya akan seperti dibawah ini :
+```mysql
+SELECT **
+```

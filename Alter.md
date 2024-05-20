@@ -19,7 +19,7 @@ ALTER TABLE daftar_mobil ADD batas_peminjaman VARCHAR(10) AFTER peminjam;
 ### Kesimpulan
 ALTER TABLE mobil ADD batas_peminjaman VARCHAR(10) AFTER peminjam; digunakan untuk menambahkan kolom baru bernama batas_peminjaman dengan tipe data VARCHAR(10) ke tabel mobil, diletakkan setelah kolom peminjam.
 ### Hasil
-![gambar](Alter/IMG1.png)
+![gambar](Aset/Alter/IMG1.png)
 
 ## Query Tambahan
 
@@ -34,7 +34,7 @@ UPDATE daftar_mobil SET batas_peminjaman='2024-04-24' WHERE peminjaman IS NOT NU
 ### Kesimpulan
 UPDATE mobil SET batas_peminjaman='2024-04-24' WHERE peminjaman IS NOT NULL; digunakan untuk memperbarui nilai kolom batas_peminjaman menjadi '2024-04-24' untuk semua baris di tabel mobil di mana nilai kolom peminjaman tidak NULL. 
 ### Hasil
-![gambar](Alter/IMG2.png)
+![gambar](Aset/Alter/IMG2.png)
 
 ## Mengubah Nama kolom
 ### Struktur Query
@@ -55,7 +55,7 @@ ALTER TABLE daftar_mobil RENAME COLUMN batas_peminjaman TO Deadline;
 ### Kesimpulan
 ALTER TABLE mobil RENAME COLUMN batas_peminjaman TO Deadline; digunakan untuk mengubah nama kolom dari batas_peminjaman menjadi Deadline dalam tabel mobil. 
 ### Hasil 
-![gambar](ALter/IMG3.png)
+![gambar](Aset/ALter/IMG3.png)
 
 ## Mengubah Tipe data kolom
 ### Struktur query
@@ -76,7 +76,7 @@ Alter Table daftar_mobil MODIFY deadline DATE;
 ### Kesimpulan
 ALTER TABLE mobil MODIFY deadline DATE; digunakan untuk mengubah tipe data kolom `deadline`dalam tabel mobil menjadi tipe data DATE.berguna untuk memastikan bahwa kolom deadline dapat menyimpan tanggal dengan format yang benar
 ### Hasil 
-![gambar](Alter/IMG4.png)
+![gambar](Aset/Alter/IMG4.png)
 
 
 ## Menambah Constraints
@@ -100,7 +100,7 @@ ALTER deadline SET DEFAULT Ready;
 ### Kesimpulan
 ALTER TABLE mobil ALTER deadline SET DEFAULT 'Ready'; digunakan untuk menetapkan nilai default 'Ready' pada kolom deadline dalam tabel mobil. 
 ### Hasil 
-![Gambar](Alter/IMG5.png)
+![Gambar](Aset/Alter/IMG5.png)
 
 ## Menghapus Constraints
 ### Struktur Query
@@ -123,7 +123,7 @@ ALTER deadline DROP DEFAULT ;
 ### Kesimpulan
 ALTER TABLE mobil ALTER deadline DROP DEFAULT; digunakan untuk menghapus nilai default dari kolom `deadline`dalam tabel mobil. 
 ### Hasil 
-![Gambar](Alter/IMG6.png)
+![Gambar](Aset/Alter/IMG6.png)
 
 ## Menghapus Kolom
 ### Struktur Query
@@ -144,7 +144,7 @@ ALTER TABLE mobil DROP COLUMN batas_peminjaman;
 ### Kesimpulan
 ALTER TABLE mobil DROP COLUMN deadline; digunakan untuk menghapus kolom deadline dari tabel mobil. 
 ### Hasil 
-![gambar](Alter/IMG7.png)
+![gambar](Aset/Alter/IMG7.png)
 ## Mengganti nama tabel 
 ### Struktur Query
 
@@ -164,4 +164,4 @@ ALTER TABLE mobil RENAME TO data_mobil
 ### Kesimpulan
 ALTER TABLE mobil RENAME TO data_mobil; digunakan untuk mengubah nama tabel mobil menjadi data_mobil.
 ### Hasil 
-![gambar](Alter/IMG8.png)
+![gambar](Aset/Alter/IMG8.png)
